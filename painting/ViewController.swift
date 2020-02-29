@@ -23,10 +23,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 switch swipeGesture.direction {
                 case UISwipeGestureRecognizer.Direction.down:
                     print("Swiped down")
-                    swiped = true
+                    swiped = false
+                    self.viewDidLoad()
                 case UISwipeGestureRecognizer.Direction.up:
                     print("Swiped up")
                     swiped = true
+                    self.viewDidLoad()
                 default:
                     break
                 }
@@ -78,7 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 }
             }
             self.arView.addSubview(mapView)
-            self.viewDidLoad()
+
         }
         // Add the box anchor to the scene
         arView.scene.anchors.append(boxAnchor)
