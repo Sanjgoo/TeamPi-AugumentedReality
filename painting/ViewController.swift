@@ -21,16 +21,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
             if let swipeGesture = gesture as? UISwipeGestureRecognizer {
                 switch swipeGesture.direction {
-                case UISwipeGestureRecognizer.Direction.down:
-                    print("Swiped down")
-                    swiped = false
-                    self.viewDidLoad()
-                case UISwipeGestureRecognizer.Direction.up:
-                    print("Swiped up")
-                    swiped = true
-                    self.viewDidLoad()
-                default:
-                    break
+                    case UISwipeGestureRecognizer.Direction.down:
+                        print("Swiped down")
+                        swiped = false
+                        self.viewDidLoad()
+//                    case UISwipeGestureRecognizer.Direction.right:
+//                        print("Swiped right")
+//                        swiped = false
+//                        self.viewDidLoad()
+//                    case UISwipeGestureRecognizer.Direction.left:
+//                        print("Swiped left")
+//                        swiped = false
+//                        self.viewDidLoad()
+                    case UISwipeGestureRecognizer.Direction.up:
+                        print("Swiped up")
+                        swiped = true
+                        self.viewDidLoad()
+                    default:
+                        break
                 }
             }
         }
@@ -41,7 +49,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         var swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeUp.direction = UISwipeGestureRecognizer.Direction.up
         self.view.addGestureRecognizer(swipeUp)
-        let boxAnchor = try! Experience.loadBox()
+        
+        var swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = UISwipeGestureRecognizer.Direction.down
+        self.view.addGestureRecognizer(swipeDown)
+        
+        
         if(swiped == true){
             let pos = CGRect(x: 10,
                 y: 2*arView.frame.height/3,
@@ -54,7 +67,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             mapView.layer.cornerRadius = 10
             
             mapView.showsUserLocation = true
-        
         
             mapView.delegate = self
             mapView.showsUserLocation = true
@@ -82,10 +94,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             self.arView.addSubview(mapView)
 
         }
+        else{
+            for v in self.arView.subviews {
+                if v is MKMapView{
+                   v.removeFromSuperview()
+                }
+                
+            }
+        }
         // Add the box anchor to the scene
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        let boxAnchor = try! Experience.loadBox()
         arView.scene.anchors.append(boxAnchor)
     }
-    
-
-    
 }
