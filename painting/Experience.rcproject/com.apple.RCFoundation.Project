@@ -10,7 +10,81 @@
                 "name" : "surface"
               },
               "behaviors" : [
-
+                {
+                  "__content" : [
+                    {
+                      "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "animationStyle" : "basic",
+                                          "duration" : 1.0299999713897705,
+                                          "emphasisAnimationType" : "flip",
+                                          "iterations" : 1,
+                                          "target" : [
+                                            "3788A5B5-0388-488A-8304-7B90FEBA6FAC",
+                                            "1EF8D66F-D638-4878-A6D1-1DDAC5CF343B"
+                                          ]
+                                        },
+                                        "name" : {
+                                          "type" : "emphasis"
+                                        }
+                                      },
+                                      "identifier" : "595A1FD8-F947-410D-9BEC-D3BEA80DA6EF",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "FCCB2377-E35C-480F-8B22-6BC231DA1369",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ],
+                      "color" : [
+                        0.364705890417099,
+                        0.74117648601531982,
+                        0.69019609689712524,
+                        1
+                      ],
+                      "identifier" : "3FF9192E-CADB-489C-9D1B-AF8CD8FFF622",
+                      "isEnabled" : true,
+                      "isLooping" : false,
+                      "isModal" : false,
+                      "name" : "Behavior",
+                      "triggers" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurationBox" : {
+                                "configuration" : {
+                                  "target" : [
+                                    "3788A5B5-0388-488A-8304-7B90FEBA6FAC",
+                                    "1EF8D66F-D638-4878-A6D1-1DDAC5CF343B"
+                                  ]
+                                },
+                                "name" : "tapTarget"
+                              },
+                              "identifier" : "9751FD13-0CF9-4287-B2FC-895339001BD8",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ]
+                    }
+                  ],
+                  "__version" : 2
+                }
               ],
               "gravity" : [
                 0,
@@ -275,9 +349,9 @@
                   -0.018685281276702881,
                   -0.83964812755584717,
                   0,
-                  0.6152527928352356,
-                  0.177511066198349,
-                  -1.4826998710632324,
+                  0.64792472124099731,
+                  -0.039298921823501587,
+                  -1.4567537307739258,
                   1
                 ],
                 "sceneTransform" : [
